@@ -6,37 +6,43 @@
     <description>Recent content on Welcome to Spirit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Aug 2016 15:34:29 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 31 Aug 2016 02:55:53 -0600</lastBuildDate>
     <atom:link href="https://bryanmartinez95.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>about</title>
-      <link>https://bryanmartinez95.github.io/about/AboutMe/</link>
-      <pubDate>Thu, 25 Aug 2016 15:34:29 -0600</pubDate>
+      <title>exptest</title>
+      <link>https://bryanmartinez95.github.io/experiment/exptest/</link>
+      <pubDate>Wed, 31 Aug 2016 02:55:53 -0600</pubDate>
       
-      <guid>https://bryanmartinez95.github.io/about/AboutMe/</guid>
-      <description>&lt;p&gt;About Me In Development!&lt;/p&gt;
-</description>
+      <guid>https://bryanmartinez95.github.io/experiment/exptest/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>about</title>
-      <link>https://bryanmartinez95.github.io/projects/FirstProjectFile/</link>
-      <pubDate>Thu, 25 Aug 2016 15:34:29 -0600</pubDate>
+      <title>firstproject</title>
+      <link>https://bryanmartinez95.github.io/project/firstproject/</link>
+      <pubDate>Wed, 31 Aug 2016 02:45:57 -0600</pubDate>
       
-      <guid>https://bryanmartinez95.github.io/projects/FirstProjectFile/</guid>
-      <description>&lt;p&gt;Projects In Development!&lt;/p&gt;
-</description>
+      <guid>https://bryanmartinez95.github.io/project/firstproject/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>about</title>
-      <link>https://bryanmartinez95.github.io/post/TestBlogPost/</link>
-      <pubDate>Thu, 25 Aug 2016 15:34:29 -0600</pubDate>
+      <title>About</title>
+      <link>https://bryanmartinez95.github.io/about/</link>
+      <pubDate>Wed, 31 Aug 2016 02:07:10 -0600</pubDate>
       
-      <guid>https://bryanmartinez95.github.io/post/TestBlogPost/</guid>
-      <description>&lt;p&gt;Blog In Development!&lt;/p&gt;
-</description>
+      <guid>https://bryanmartinez95.github.io/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firstpost</title>
+      <link>https://bryanmartinez95.github.io/blog/firstpost/</link>
+      <pubDate>Wed, 31 Aug 2016 01:55:53 -0600</pubDate>
+      
+      <guid>https://bryanmartinez95.github.io/blog/firstpost/</guid>
+      <description></description>
     </item>
     
   </channel>
