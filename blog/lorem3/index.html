@@ -4,37 +4,54 @@
     <head>
         <meta charset="utf-8">
         <title>lorem3</title>
-        <link href="https://bryanmartinez95.github.io//css/bootstrap.css" rel="stylesheet">
-        <link href="https://bryanmartinez95.github.io//css/w3.css" rel="stylesheet">
+        
+        
+        <link href="https://bryanmartinez95.github.io//css/normalize.css" rel="stylesheet">
         <link href="https://bryanmartinez95.github.io//css/styles.css" rel="stylesheet">
         <link href="https://bryanmartinez95.github.io//css/navbar.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/card.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/footer.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     </head>
     <body>
     <div class="body"> 
-        <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/"><img src="http://i.imgur.com/SCxqq90.png" class="profilepic" alt="Profile Picture"></a>
+        <nav class="navbar-flex-group">
+
+    <div class="flex-container">
+        
+      
+    <a href="javascript:void(0);" onclick="openNav()">&#9776;</a>
+  
+      <a class="flex-item" href="/"><img src="http://i.imgur.com/SCxqq90.png" class="profilepic" alt="Profile Picture"></a>
     </div>
 
+
     
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right nav-list">
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/experiment">Experiments</a></li>
-        <li><a href="/project">Projects</a></li>
-        <li><a href="/about">About Me</a></li>
+      <ul class="flex-container nav-list">
+        <li class="flex-item"><a class="nav-underline" href="/blog">Blog</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/experiment">Experiments</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/project">Projects</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/about">About Me</a></li>
       </ul>
-    </div>
-  </div>
+
+    
+
 </nav>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+
+<span onclick="openNav()">open</span>
+
+
+<div id="main">
+  ...
+</div>
 <p><h2>lorem ipsum</h2>
 Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
 Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
@@ -55,7 +72,8 @@ Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptat
         </div> 
         
         <script src="/js/jquery-3.1.0.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/js/materialize.js"></script>
+
 <script src="/js/script.js"></script>
 <script src="https://use.fontawesome.com/0ff2475afb.js"></script>	
     </body>
