@@ -1,0 +1,148 @@
+<html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Unit Testing and an Introduction to Mocks</title>
+        
+        
+        <link href="https://bryanmartinez95.github.io//css/normalize.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/styles.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/navbar.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/card.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/footer.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body>
+        <div class="dim"></div>
+    <div class="body"> 
+    
+        <nav class="navbar-flex-group">
+
+    <div class="flex-container">
+        
+      
+    <a class="flex-item menu" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+  
+      
+    </div>
+
+
+    
+      <ul class="flex-container nav-list">
+        <li class="flex-item"><a class="nav-underline" href="/blog">Blog</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/experiment">Experiments</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/project">Projects</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/about">About Me</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/about">Learn?</a></li>
+      </ul>
+
+    
+
+</nav>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a class="mobile-item-top" href="/blog">Blog</a>
+  <a class="mobile-item" href="/experiment">Experiment</a>
+  <a class="mobile-item" href="/project">Project</a>
+  <a class="mobile-item" href="/about">About Me</a>
+</div>
+
+
+<div class="page-flex-container">
+<p>Today Ill be covering basic unit testing along with the concept of what a Mock is. Before this, we must first define what a &ldquo;unit&rdquo; specifically is. The definition of a unit can be different for everyone but can generally be seen as the smallest piece of functionality. For the purposes of this blog post, we&rsquo;ll be using Java &ldquo;methods&rdquo; as a unit.
+<h2>Unit Testing With JUnit</h2>
+JUnit is one of the main unit testing frameworks for the Java programming language. JUnit provides many useful tools to allow us to test our code quickly and easily. For example, if i had a UserService and i wanted to test a addUser method, instead of going through the painful process of building a whole front end just to see if it worked properly, I could just create a Unit Test for it and hook it up to run separately from the main application.
+[java]public class UserTest{
+   List users;
+   UserService userService;</p>
+
+<p>@Before
+   public void setup()
+   {
+      userService = new UserService();
+      users= new ArrayList&lt;&gt;();
+   }</p>
+
+<p>@Test
+   public void addUser()
+   {
+       User user= new user(&ldquo;name&rdquo;);
+       userService.add(user);
+       users = userService.getAll();
+       assertEquals(1, users.size();
+   }</p>
+
+<p>@Test
+   public void addUserNoName()
+   {
+        User user= new user(null);
+       userService.add(user);
+       users = userService.getAll();
+       assertEquals(0, users.size();
+   }</p>
+
+<p>}[/java]
+Above is a simple example of a unit test to see whether or not the userService adds a user to the system in the correct conditions, in our second test addUserNoName, we set the name of the user to null, this the userservice will not add this user to the system.</p>
+
+<p><a href="http://junit.org/">http://junit.org/</a>
+<h2>Basic Mocking With Mockito</h2>
+Mockito is a mocking framework for Java that allows helps you create unit tests. There are many mocking frameworks you could use but I found that Mockito is amongst the most popular in the Java community.
+<h3>What is a mock and why is it useful?</h3>
+When our code has many dependencies things often become hard to unit test as a object may depend on the existence of another object. For example, a UserService is reliant on a UserRepository.</p>
+
+<p>This can cause problems because if I run into an error, I don&rsquo;t exactly know whether the method I am currently testing is correct or whether the dependencies contain errors within themselves.The other problem is that, it will not be a true unit test if you are relying on other things to get your result.</p>
+
+<p>This is where mocking comes in handy, we can create pretend objects in which we can specify the behavior of these objects.
+[java]public class UserTest{
+   List users;
+   UserService userService;
+   UserRepository userRepository;</p>
+
+<p>@Before
+   public void setup()
+   {
+      userRepository = <b>Mockito.mock(UserRepository.class)</b>
+      userService = new UserService();
+      users= new ArrayList&lt;&gt;();
+   }</p>
+
+<p>@Test
+   public void mockTest()
+   {
+       User user= new user(&ldquo;name&rdquo;);
+       <b>Mockito.when(userRepository.save(user)).thenReturn(true);</b><br />
+       <b>Mockito.when(userRepository.findUser(user).thenReturn(user);</b></p>
+
+<pre><code>   userService.add(user);
+   User user2= userRepository.findUser(user);
+   assertEquals(user,user2);
+</code></pre>
+
+<p>}</p>
+
+<p>}[/java]
+Above is another example of the UserService being tested. However, the UserService relies on the userRepository in order to work, so in order to properly implement this test, we use the following lines which are pretty self explanatory to create a pretend userRepository that does exactly what we tell it to do.
+<a href="http://site.mockito.org/">http://site.mockito.org/</a></p>
+
+</div>
+    
+    <footer class="page-footer">
+        
+        <ul class="footer-icon-list">
+            
+            <li><a class="footer-link" href="https://www.instagram.com/bfmxyz/" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
+            <li><a class="footer-link" href="https://github.com/BryanMartinez95" target="_blank"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a></li>
+            <li><a class="footer-link" href="https://ca.linkedin.com/in/bmartinez95"  target="_blank"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a></li>       
+        </ul>
+    </footer>
+        </div> 
+        
+        <script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/materialize.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="https://use.fontawesome.com/0ff2475afb.js"></script>	
+    </body>
+</html>
+

@@ -6,8 +6,204 @@
     <description>Recent content in Blogs on Welcome to Spirit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Sep 2016 22:15:01 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 14 Sep 2016 23:26:50 -0700</lastBuildDate>
     <atom:link href="https://bryanmartinez95.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Unit Testing and an Introduction to Mocks</title>
+      <link>https://bryanmartinez95.github.io/blog/UnitTesting/</link>
+      <pubDate>Wed, 14 Sep 2016 23:26:50 -0700</pubDate>
+      
+      <guid>https://bryanmartinez95.github.io/blog/UnitTesting/</guid>
+      <description>&lt;p&gt;Today Ill be covering basic unit testing along with the concept of what a Mock is. Before this, we must first define what a &amp;ldquo;unit&amp;rdquo; specifically is. The definition of a unit can be different for everyone but can generally be seen as the smallest piece of functionality. For the purposes of this blog post, we&amp;rsquo;ll be using Java &amp;ldquo;methods&amp;rdquo; as a unit.
+&lt;h2&gt;Unit Testing With JUnit&lt;/h2&gt;
+JUnit is one of the main unit testing frameworks for the Java programming language. JUnit provides many useful tools to allow us to test our code quickly and easily. For example, if i had a UserService and i wanted to test a addUser method, instead of going through the painful process of building a whole front end just to see if it worked properly, I could just create a Unit Test for it and hook it up to run separately from the main application.
+[java]public class UserTest{
+   List users;
+   UserService userService;&lt;/p&gt;
+
+&lt;p&gt;@Before
+   public void setup()
+   {
+      userService = new UserService();
+      users= new ArrayList&amp;lt;&amp;gt;();
+   }&lt;/p&gt;
+
+&lt;p&gt;@Test
+   public void addUser()
+   {
+       User user= new user(&amp;ldquo;name&amp;rdquo;);
+       userService.add(user);
+       users = userService.getAll();
+       assertEquals(1, users.size();
+   }&lt;/p&gt;
+
+&lt;p&gt;@Test
+   public void addUserNoName()
+   {
+        User user= new user(null);
+       userService.add(user);
+       users = userService.getAll();
+       assertEquals(0, users.size();
+   }&lt;/p&gt;
+
+&lt;p&gt;}[/java]
+Above is a simple example of a unit test to see whether or not the userService adds a user to the system in the correct conditions, in our second test addUserNoName, we set the name of the user to null, this the userservice will not add this user to the system.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://junit.org/&#34;&gt;http://junit.org/&lt;/a&gt;
+&lt;h2&gt;Basic Mocking With Mockito&lt;/h2&gt;
+Mockito is a mocking framework for Java that allows helps you create unit tests. There are many mocking frameworks you could use but I found that Mockito is amongst the most popular in the Java community.
+&lt;h3&gt;What is a mock and why is it useful?&lt;/h3&gt;
+When our code has many dependencies things often become hard to unit test as a object may depend on the existence of another object. For example, a UserService is reliant on a UserRepository.&lt;/p&gt;
+
+&lt;p&gt;This can cause problems because if I run into an error, I don&amp;rsquo;t exactly know whether the method I am currently testing is correct or whether the dependencies contain errors within themselves.The other problem is that, it will not be a true unit test if you are relying on other things to get your result.&lt;/p&gt;
+
+&lt;p&gt;This is where mocking comes in handy, we can create pretend objects in which we can specify the behavior of these objects.
+[java]public class UserTest{
+   List users;
+   UserService userService;
+   UserRepository userRepository;&lt;/p&gt;
+
+&lt;p&gt;@Before
+   public void setup()
+   {
+      userRepository = &lt;b&gt;Mockito.mock(UserRepository.class)&lt;/b&gt;
+      userService = new UserService();
+      users= new ArrayList&amp;lt;&amp;gt;();
+   }&lt;/p&gt;
+
+&lt;p&gt;@Test
+   public void mockTest()
+   {
+       User user= new user(&amp;ldquo;name&amp;rdquo;);
+       &lt;b&gt;Mockito.when(userRepository.save(user)).thenReturn(true);&lt;/b&gt;&lt;br /&gt;
+       &lt;b&gt;Mockito.when(userRepository.findUser(user).thenReturn(user);&lt;/b&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   userService.add(user);
+   User user2= userRepository.findUser(user);
+   assertEquals(user,user2);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;}[/java]
+Above is another example of the UserService being tested. However, the UserService relies on the userRepository in order to work, so in order to properly implement this test, we use the following lines which are pretty self explanatory to create a pretend userRepository that does exactly what we tell it to do.
+&lt;a href=&#34;http://site.mockito.org/&#34;&gt;http://site.mockito.org/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Integration Testing</title>
+      <link>https://bryanmartinez95.github.io/blog/IntegrationTesting/</link>
+      <pubDate>Wed, 14 Sep 2016 23:25:43 -0700</pubDate>
+      
+      <guid>https://bryanmartinez95.github.io/blog/IntegrationTesting/</guid>
+      <description>&lt;p&gt;My experience with integration testing lies mainly with testing entities and database relationships as well as testing database queries. There are many ways to do integration testing as it involves testing multiple layers together to see if they work together properly. This post will specifically use examples that are focused on data access.
+&lt;h2&gt;In-Memory Database&lt;/h2&gt;
+A very useful tool to test databases is a In-Memory database, this way if your system is live or your actual database is in a delicate state of some sort, we can create a temporary in-memory database that will construct and de construct itself after every test. Another benefit of a in-memory database is that it proves to be faster than a traditional database because it is sitting in memory. The one I have most experience with is HSQLDB (Hyper SQL database). You can set up your application to use this in memory database at runtime instead of your actual one for safer and faster tests.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://hsqldb.org/&#34;&gt;http://hsqldb.org/&lt;/a&gt;
+&lt;h2&gt;Data Access Testing&lt;/h2&gt;&lt;/p&gt;
+
+&lt;p&gt;[java]public int insert(User user)  {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(user);
+            em.getTransaction().commit();
+            return 1;
+        } finally {
+            em.close();
+        }
+    }
+[/java]&lt;/p&gt;
+
+&lt;p&gt;Here is a method using Hibernate JPA to insert a user into a database. To break it down, we pass a User object to the method, open the connection to the database using the EntityManager, open a transaction, persist the user, commit the transaction and close the connection. This makes sense, but how do we know that it does what we need it to do? Well there&amp;rsquo;s no way of testing this without an actual database and in order to test this, we must also use another method to help us out.&lt;/p&gt;
+
+&lt;p&gt;[java]public User getUser(String userName)  {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+            User user = em.find(User.class, userName);
+            return user;
+        } finally {
+            em.close();&lt;br /&gt;
+        }
+    }
+[/java]&lt;/p&gt;
+
+&lt;p&gt;Here is the getUser method that we will assume has been tested and works properly already. This method takes in a username and based on that username, will return the appropriate user.&lt;/p&gt;
+
+&lt;p&gt;[java]public class UserTest
+{
+    public User user;
+    public UserRepository userRepository;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Before
+public void setup()
+{
+    userRepository = new UserRepository();
+    user = new User(&amp;quot;Mike&amp;quot;,&amp;quot;password&amp;quot;);
+}
+
+@Test
+public void insertUserTest1()
+{
+    userRepository.insert(user);
+    User user2 = userRepository.getUser(&amp;quot;Mike&amp;quot;);
+    Assert.assertEquals(&amp;quot;Mike&amp;quot;, user2.getUserName());
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}
+[/java]&lt;/p&gt;
+
+&lt;p&gt;Here is a small and quick example of the integration test. We create a user with the username of Mike, after that we use the getUser method to check the database for any users with the username of Mike, if it gets the proper result back, our test will pass.&lt;/p&gt;
+
+&lt;p&gt;The main thing to point out here is that integration tests sit on top of unit tests. &lt;strong&gt;Testing is a bottom up process. &lt;/strong&gt;There are many layers as well as many methods involved in this short test. It is important to do unit testing before we do integration tests to ensure that each part of it is functioning properly before we put the pieces together.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What does testing mean to a software developer?</title>
+      <link>https://bryanmartinez95.github.io/blog/WhatDoesTestingMean/</link>
+      <pubDate>Wed, 14 Sep 2016 23:24:41 -0700</pubDate>
+      
+      <guid>https://bryanmartinez95.github.io/blog/WhatDoesTestingMean/</guid>
+      <description>&lt;p&gt;I thought i knew what properly testing my code meant. But as I started to grow as a junior developer, I started to become confused as to what testing really was.&lt;/p&gt;
+
+&lt;p&gt;As a result of my research, I have realized that the definition of testing is different between every person and that “testing” is basically a huge contradiction. Through my research i have found that each developer must create their own style and own set of rules. A couple questions you can ask yourself to find out include “How much time do i have to finish this program?”, “How much much time must i devote to testing to make this program solid and bug free?”, “Am i sure that this piece of code works in different scenarios?”. If you can create a application that produces no bugs with zero testing in any situation, than you do not need to test one bit. If your the kind of person who must test every function/class/use case of your application to feel confident in your work, than that is your correct answer. I find that the middle of the two is a good place for me and that testing is a means to get myself in the correct mindset while programming to think from different angles.&lt;/p&gt;
+
+&lt;p&gt;This will change between workplace and groups but as a general definition i have split testing into three main sections that make sense to me. Unit testing, Integration testing and acceptance/full stack testing.
+&lt;h2&gt;&lt;strong&gt;Unit testing&lt;/strong&gt;&lt;/h2&gt;
+&lt;img class=&#34;alignnone wp-image-38&#34; src=&#34;https://liandraumr.files.wordpress.com/2016/01/colored-lego-blocks.jpg?w=195&amp;amp;h=130&#34; alt=&#34;colored-lego-blocks&#34; width=&#34;195&#34; height=&#34;130&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The definition of a unit can vary between project, a unit can be as small as testing a method/function or a unit can mean testing the functionality of a class. A unit can also mean testing how a particular group of methods work together to complete a task. But to summarize the definition, a unit test is used to test the smallest unit of functionality. Imagine it as checking each individual Lego block is in working order. But there are a couple rules that unit testing must follow.
+&lt;ul&gt;
+    &lt;li&gt;Must be independent and should be as dependency free as possible&lt;/li&gt;
+    &lt;li&gt;Must not touch a database&lt;/li&gt;
+    &lt;li&gt;Must not access the network&lt;/li&gt;
+    &lt;li&gt;Must not use any outside resource&lt;/li&gt;
+&lt;/ul&gt;
+If your checking to see if your “add user” function successfully updated the tables in your database, that is not unit testing. More specifically, if your checking that if your “retrieve  all users” function returns a list of 3 when there are 3 mock users created, that is unit testing. We’ll touch a little more on mocking frameworks and more on unit testing in a future post.
+&lt;h2&gt;Integration Testing&lt;/h2&gt;
+&lt;h2&gt;&lt;img class=&#34;alignnone wp-image-63&#34; src=&#34;https://liandraumr.files.wordpress.com/2016/01/system_integration_1.jpg?w=183&amp;amp;h=160&#34; alt=&#34;system_integration_1&#34; width=&#34;183&#34; height=&#34;160&#34; /&gt;&lt;/h2&gt;
+If testing was a pyramid, Integration tests would build on top unit tests. Integration tests are done by combining more than one unit together to ensure that multiple pieces of the puzzle fit together correctly. Integration testing is also where databases come into play. To test whether your application successfully adds a user to the database and that user can be retrieved from the database is a integration test.&lt;/p&gt;
+
+&lt;p&gt;If you’ve built the front end part of an application, how do you know that your end can successfully interact with the database back end? By using integration testing, we can test whether the two systems can successfully talk to each other. Unit tests, test whether the unit or function in itself works. With integration tests, we can see if the two working functions/units can talk to each other without error. The one thing to be aware of with integration tests is the current environment you are in. Because things are working with your environment, does not mean that the application will work guaranteed at production. We will also be going in depth into integration testing in a future post.
+&lt;h2&gt;Acceptance Testing&lt;/h2&gt;
+&lt;img class=&#34;alignnone wp-image-95&#34; src=&#34;https://liandraumr.files.wordpress.com/2016/01/legopside3.jpg?w=185&amp;amp;h=139&#34; alt=&#34;legopside3&#34; width=&#34;185&#34; height=&#34;139&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Acceptance testing means a couple of different things but all generally lead to the same definition. Typically acceptance testing involves the entire system in the environment it is deployed in.&lt;/p&gt;
+
+&lt;p&gt;e.g. Your project team has been using a local server to launch the application but the clients choice of server is different and once the application is set up, tests must be run to ensure that the application works the same.&lt;/p&gt;
+
+&lt;p&gt;The advantage of this type of of testing is pretty clear to see. It tests the functionality to see whether your use cases are working properly. Everyone does acceptance testing whether they realize it or not. It can be as simple as checking to see if you can log into your system properly or successfully update an account. A good question to ask yourself is whether or not you have met the clients expectations with what you have created.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;
+&lt;h2&gt;Summary&lt;/h2&gt;
+Each time we move up a step, our application gets harder to find the bugs as there the number of things to test exponentially increases. In an MVC layout, all layers of your code is being touched and it can be hard to find out where things are breaking. But as we inspect each type of test, we can adjust our magnifying glass as needed and easily pin point where our code is breaking. Each layer of testing is equally important and by having a layer of each, they work together to ensure maximum code coverage. But most importantly, testing is a means to get you in the correct mindset while programming to think from different angles.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>lorem2</title>

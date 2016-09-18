@@ -1,0 +1,136 @@
+<html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Integration Testing</title>
+        
+        
+        <link href="https://bryanmartinez95.github.io//css/normalize.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/styles.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/navbar.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/card.css" rel="stylesheet">
+        <link href="https://bryanmartinez95.github.io//css/footer.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body>
+        <div class="dim"></div>
+    <div class="body"> 
+    
+        <nav class="navbar-flex-group">
+
+    <div class="flex-container">
+        
+      
+    <a class="flex-item menu" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+  
+      
+    </div>
+
+
+    
+      <ul class="flex-container nav-list">
+        <li class="flex-item"><a class="nav-underline" href="/blog">Blog</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/experiment">Experiments</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/project">Projects</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/about">About Me</a></li>
+        <li class="flex-item"><a class="nav-underline" href="/about">Learn?</a></li>
+      </ul>
+
+    
+
+</nav>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a class="mobile-item-top" href="/blog">Blog</a>
+  <a class="mobile-item" href="/experiment">Experiment</a>
+  <a class="mobile-item" href="/project">Project</a>
+  <a class="mobile-item" href="/about">About Me</a>
+</div>
+
+
+<div class="page-flex-container">
+<p>My experience with integration testing lies mainly with testing entities and database relationships as well as testing database queries. There are many ways to do integration testing as it involves testing multiple layers together to see if they work together properly. This post will specifically use examples that are focused on data access.
+<h2>In-Memory Database</h2>
+A very useful tool to test databases is a In-Memory database, this way if your system is live or your actual database is in a delicate state of some sort, we can create a temporary in-memory database that will construct and de construct itself after every test. Another benefit of a in-memory database is that it proves to be faster than a traditional database because it is sitting in memory. The one I have most experience with is HSQLDB (Hyper SQL database). You can set up your application to use this in memory database at runtime instead of your actual one for safer and faster tests.</p>
+
+<p><a href="http://hsqldb.org/">http://hsqldb.org/</a>
+<h2>Data Access Testing</h2></p>
+
+<p>[java]public int insert(User user)  {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(user);
+            em.getTransaction().commit();
+            return 1;
+        } finally {
+            em.close();
+        }
+    }
+[/java]</p>
+
+<p>Here is a method using Hibernate JPA to insert a user into a database. To break it down, we pass a User object to the method, open the connection to the database using the EntityManager, open a transaction, persist the user, commit the transaction and close the connection. This makes sense, but how do we know that it does what we need it to do? Well there&rsquo;s no way of testing this without an actual database and in order to test this, we must also use another method to help us out.</p>
+
+<p>[java]public User getUser(String userName)  {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        try {
+            User user = em.find(User.class, userName);
+            return user;
+        } finally {
+            em.close();<br />
+        }
+    }
+[/java]</p>
+
+<p>Here is the getUser method that we will assume has been tested and works properly already. This method takes in a username and based on that username, will return the appropriate user.</p>
+
+<p>[java]public class UserTest
+{
+    public User user;
+    public UserRepository userRepository;</p>
+
+<pre><code>@Before
+public void setup()
+{
+    userRepository = new UserRepository();
+    user = new User(&quot;Mike&quot;,&quot;password&quot;);
+}
+
+@Test
+public void insertUserTest1()
+{
+    userRepository.insert(user);
+    User user2 = userRepository.getUser(&quot;Mike&quot;);
+    Assert.assertEquals(&quot;Mike&quot;, user2.getUserName());
+}
+</code></pre>
+
+<p>}
+[/java]</p>
+
+<p>Here is a small and quick example of the integration test. We create a user with the username of Mike, after that we use the getUser method to check the database for any users with the username of Mike, if it gets the proper result back, our test will pass.</p>
+
+<p>The main thing to point out here is that integration tests sit on top of unit tests. <strong>Testing is a bottom up process. </strong>There are many layers as well as many methods involved in this short test. It is important to do unit testing before we do integration tests to ensure that each part of it is functioning properly before we put the pieces together.</p>
+
+</div>
+    
+    <footer class="page-footer">
+        
+        <ul class="footer-icon-list">
+            
+            <li><a class="footer-link" href="https://www.instagram.com/bfmxyz/" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
+            <li><a class="footer-link" href="https://github.com/BryanMartinez95" target="_blank"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a></li>
+            <li><a class="footer-link" href="https://ca.linkedin.com/in/bmartinez95"  target="_blank"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a></li>       
+        </ul>
+    </footer>
+        </div> 
+        
+        <script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/materialize.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="https://use.fontawesome.com/0ff2475afb.js"></script>	
+    </body>
+</html>
+
