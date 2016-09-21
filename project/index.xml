@@ -6,52 +6,27 @@
     <description>Recent content in Projects on Welcome to Spirit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Sep 2016 22:15:54 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 31 Aug 2016 02:45:57 -0600</lastBuildDate>
     <atom:link href="https://bryanmartinez95.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>project4</title>
-      <link>https://bryanmartinez95.github.io/project/project4/</link>
-      <pubDate>Thu, 01 Sep 2016 22:15:54 -0600</pubDate>
-      
-      <guid>https://bryanmartinez95.github.io/project/project4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>project3</title>
-      <link>https://bryanmartinez95.github.io/project/project3/</link>
-      <pubDate>Thu, 01 Sep 2016 22:15:51 -0600</pubDate>
-      
-      <guid>https://bryanmartinez95.github.io/project/project3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>project2</title>
-      <link>https://bryanmartinez95.github.io/project/project2/</link>
-      <pubDate>Thu, 01 Sep 2016 22:15:49 -0600</pubDate>
-      
-      <guid>https://bryanmartinez95.github.io/project/project2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>project1</title>
-      <link>https://bryanmartinez95.github.io/project/project1/</link>
-      <pubDate>Thu, 01 Sep 2016 22:15:46 -0600</pubDate>
-      
-      <guid>https://bryanmartinez95.github.io/project/project1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>firstproject</title>
-      <link>https://bryanmartinez95.github.io/project/firstproject/</link>
+      <title>Capstone</title>
+      <link>https://bryanmartinez95.github.io/project/Capstone/</link>
       <pubDate>Wed, 31 Aug 2016 02:45:57 -0600</pubDate>
       
-      <guid>https://bryanmartinez95.github.io/project/firstproject/</guid>
-      <description></description>
+      <guid>https://bryanmartinez95.github.io/project/Capstone/</guid>
+      <description>&lt;h1&gt;Capstone - Recursive Delegation 2016&lt;/h1&gt;
+
+&lt;p&gt;At my time at SAIT I spent a year working on a Capstone project. This capstone project was done with a group of 4 in which we were called Recursive Delegation. This Capstone serves as a milestone to show our growth at our time at SAIT. Our client was a researcher for the Applied Research and Innovation division at SAIT.&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;The Problem&lt;/h3&gt;
+Our clients issue was that he was spending too much time gathering data from different sources and spending too much time on report generation. An estimated 8-16 hours a week was spent gathering data and generating reports when the clients time could be spent much more effeciently.&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;Our Solution&lt;/h3&gt;
+Our Solution was to create a web-based application that automatically collects and centralizes all the clients data in a centralized location for visualization aswell as automatic report generation.&lt;/p&gt;
+
+&lt;h2&gt;The Application&lt;/h2&gt;
+</description>
     </item>
     
   </channel>

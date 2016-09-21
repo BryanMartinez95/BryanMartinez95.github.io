@@ -15,7 +15,8 @@
       <pubDate>Wed, 14 Sep 2016 23:26:50 -0700</pubDate>
       
       <guid>https://bryanmartinez95.github.io/blog/UnitTesting/</guid>
-      <description>&lt;p&gt;Today Ill be covering basic unit testing along with the concept of what a Mock is. Before this, we must first define what a &amp;ldquo;unit&amp;rdquo; specifically is. The definition of a unit can be different for everyone but can generally be seen as the smallest piece of functionality. For the purposes of this blog post, we&amp;rsquo;ll be using Java &amp;ldquo;methods&amp;rdquo; as a unit.
+      <description>&lt;p&gt;&lt;h1&gt;Unit Testing&lt;/h1&gt;
+Today Ill be covering basic unit testing along with the concept of what a Mock is. Before this, we must first define what a &amp;ldquo;unit&amp;rdquo; specifically is. The definition of a unit can be different for everyone but can generally be seen as the smallest piece of functionality. For the purposes of this blog post, we&amp;rsquo;ll be using Java &amp;ldquo;methods&amp;rdquo; as a unit.
 &lt;h2&gt;Unit Testing With JUnit&lt;/h2&gt;
 JUnit is one of the main unit testing frameworks for the Java programming language. JUnit provides many useful tools to allow us to test our code quickly and easily. For example, if i had a UserService and i wanted to test a addUser method, instead of going through the painful process of building a whole front end just to see if it worked properly, I could just create a Unit Test for it and hook it up to run separately from the main application.
 [java]public class UserTest{
@@ -98,7 +99,8 @@ Above is another example of the UserService being tested. However, the UserServi
       <pubDate>Wed, 14 Sep 2016 23:25:43 -0700</pubDate>
       
       <guid>https://bryanmartinez95.github.io/blog/IntegrationTesting/</guid>
-      <description>&lt;p&gt;My experience with integration testing lies mainly with testing entities and database relationships as well as testing database queries. There are many ways to do integration testing as it involves testing multiple layers together to see if they work together properly. This post will specifically use examples that are focused on data access.
+      <description>&lt;p&gt;&lt;h1&gt;Integration Testing&lt;/h1&gt;
+My experience with integration testing lies mainly with testing entities and database relationships as well as testing database queries. There are many ways to do integration testing as it involves testing multiple layers together to see if they work together properly. This post will specifically use examples that are focused on data access.
 &lt;h2&gt;In-Memory Database&lt;/h2&gt;
 A very useful tool to test databases is a In-Memory database, this way if your system is live or your actual database is in a delicate state of some sort, we can create a temporary in-memory database that will construct and de construct itself after every test. Another benefit of a in-memory database is that it proves to be faster than a traditional database because it is sitting in memory. The one I have most experience with is HSQLDB (Hyper SQL database). You can set up your application to use this in memory database at runtime instead of your actual one for safer and faster tests.&lt;/p&gt;
 
@@ -169,7 +171,8 @@ public void insertUserTest1()
       <pubDate>Wed, 14 Sep 2016 23:24:41 -0700</pubDate>
       
       <guid>https://bryanmartinez95.github.io/blog/WhatDoesTestingMean/</guid>
-      <description>&lt;p&gt;I thought i knew what properly testing my code meant. But as I started to grow as a junior developer, I started to become confused as to what testing really was.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;h1&gt;What does testing mean to a software developer?&lt;/h1&gt;
+I thought i knew what properly testing my code meant. But as I started to grow as a junior developer, I started to become confused as to what testing really was.&lt;/p&gt;
 
 &lt;p&gt;As a result of my research, I have realized that the definition of testing is different between every person and that “testing” is basically a huge contradiction. Through my research i have found that each developer must create their own style and own set of rules. A couple questions you can ask yourself to find out include “How much time do i have to finish this program?”, “How much much time must i devote to testing to make this program solid and bug free?”, “Am i sure that this piece of code works in different scenarios?”. If you can create a application that produces no bugs with zero testing in any situation, than you do not need to test one bit. If your the kind of person who must test every function/class/use case of your application to feel confident in your work, than that is your correct answer. I find that the middle of the two is a good place for me and that testing is a means to get myself in the correct mindset while programming to think from different angles.&lt;/p&gt;
 
@@ -203,60 +206,6 @@ If testing was a pyramid, Integration tests would build on top unit tests. Integ
 &lt;h2&gt;Summary&lt;/h2&gt;
 Each time we move up a step, our application gets harder to find the bugs as there the number of things to test exponentially increases. In an MVC layout, all layers of your code is being touched and it can be hard to find out where things are breaking. But as we inspect each type of test, we can adjust our magnifying glass as needed and easily pin point where our code is breaking. Each layer of testing is equally important and by having a layer of each, they work together to ensure maximum code coverage. But most importantly, testing is a means to get you in the correct mindset while programming to think from different angles.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>lorem2</title>
-      <link>https://bryanmartinez95.github.io/blog/lorem2/</link>
-      <pubDate>Thu, 01 Sep 2016 22:15:01 -0600</pubDate>
-      
-      <guid>https://bryanmartinez95.github.io/blog/lorem2/</guid>
-      <description>&lt;p&gt;&lt;h2&gt;lorem ipsum&lt;/h2&gt;
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>lorem3</title>
-      <link>https://bryanmartinez95.github.io/blog/lorem3/</link>
-      <pubDate>Thu, 01 Sep 2016 22:14:50 -0600</pubDate>
-      
-      <guid>https://bryanmartinez95.github.io/blog/lorem3/</guid>
-      <description>&lt;p&gt;&lt;h2&gt;lorem ipsum&lt;/h2&gt;
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>lorem</title>
-      <link>https://bryanmartinez95.github.io/blog/lorem/</link>
-      <pubDate>Thu, 01 Sep 2016 22:14:34 -0600</pubDate>
-      
-      <guid>https://bryanmartinez95.github.io/blog/lorem/</guid>
-      <description>&lt;p&gt;&lt;h2&gt;lorem ipsum&lt;/h2&gt;
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.
-Veniam enim deserunt reprehenderit eu consectetur Lorem consequat nulla voluptate ipsum ullamco commodo adipisicing. Fugiat eiusmod irure esse mollit consectetur. Ex ea non eu do magna ex ex anim. Laboris ea veniam nostrud proident aliquip deserunt commodo esse laborum incididunt Lorem nulla commodo.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>firstpost</title>
-      <link>https://bryanmartinez95.github.io/blog/firstpost/</link>
-      <pubDate>Wed, 31 Aug 2016 01:55:53 -0600</pubDate>
-      
-      <guid>https://bryanmartinez95.github.io/blog/firstpost/</guid>
-      <description></description>
     </item>
     
   </channel>
