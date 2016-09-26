@@ -6,8 +6,17 @@
     <description>Recent content on Welcome to Spirit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Sep 2016 20:45:33 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 25 Sep 2016 23:22:49 -0700</lastBuildDate>
     <atom:link href="https://bryanmartinez95.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>tmp</title>
+      <link>https://bryanmartinez95.github.io/learn/tmp/</link>
+      <pubDate>Sun, 25 Sep 2016 23:22:49 -0700</pubDate>
+      
+      <guid>https://bryanmartinez95.github.io/learn/tmp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>test</title>
@@ -239,7 +248,9 @@ As for outside programming im a pretty simple guy. I spend a lot of my spare tim
 
 &lt;p&gt;&lt;h2&gt;Contact&lt;/h2&gt;
 &lt;p&gt;Email: B.martinez.95@hotmail.com &lt;/p&gt;
-&lt;p&gt;Cell: (403) 909- 5132&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;Cell: (403) 909- 5132&lt;/p&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
 </description>
     </item>
     
