@@ -6,16 +6,104 @@
     <description>Recent content on Welcome to Spirit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Sep 2016 23:22:49 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 26 Sep 2016 03:15:27 -0700</lastBuildDate>
     <atom:link href="https://bryanmartinez95.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>tmp</title>
-      <link>https://bryanmartinez95.github.io/learn/tmp/</link>
-      <pubDate>Sun, 25 Sep 2016 23:22:49 -0700</pubDate>
+      <title>HTTP/1.1 review</title>
+      <link>https://bryanmartinez95.github.io/learn/http/</link>
+      <pubDate>Mon, 26 Sep 2016 03:15:27 -0700</pubDate>
       
-      <guid>https://bryanmartinez95.github.io/learn/tmp/</guid>
-      <description></description>
+      <guid>https://bryanmartinez95.github.io/learn/http/</guid>
+      <description>&lt;p&gt;&lt;h1&gt;HTTP/1.1 review&lt;/h1&gt;
+In this post we&amp;rsquo;ll be going over what HTTP is and why its important. Practically every web application uses HTTP in some form or way and its something that can be used without truly understanding it. But in order to truly gain a deeper understanding of how our applications work, we must understand whats happening beneath the lines. HTTP runs through port 80 and is defeined in RFC 2616.
+&lt;h2&gt;What is HTTP?&lt;/h1&gt;
+We see HTTP used everywhere but what exactly is HTTP? To put it simply, HTTP is a application level protocol thats used to transfer data across the world wide web. HTTP follows a client server pattern where a client would make a request to some sort of server and the server would reply back with a response. A client can make various kinds of requests to a server depending on what the client is trying to do. A simple example is typing in www.google.ca in your browser, this is simply asking to GET the resource with the domain name of google.ca and the server responds back with the html file that describes google.ca.
+&lt;h2&gt;POST vs GET&lt;/h2&gt;
+In essense, POST and get both do the same thing. But they key difference is that POST encases form data and resources inside the message body.&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;Format&lt;/h2&gt;
+HTTP/1.0 defines 16 headers but none are required. HTTP/1/1 defined 46 headers and the HOST: header is required in requests. The header is at the top of every HTTP request. The very first line of a HTTP request will always follow the format of request type, resource, HTTP version ex. [GET /path/file.html HTTP/1.0]. Following the first line are the header lines which can have things like date and sender information. Following this is the message body where resource information is stored. If successful the server will respond back with a 200 code ex. [HTTP/1.1 200 OK] along with the requested resource. If failed, the server will respond back with a non 200 code indicating that there was some sort of error.
+&lt;h2&gt;Request Types&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;b&gt;GET:&lt;/b&gt; Retrieve requested resource&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;POST:&lt;/b&gt; Retrieve requested resource &amp;amp; put form data in message body&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;PUT:&lt;/b&gt; enclosed entity stored under supplied request-URI, or updates if existing&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;DELETE:&lt;/b&gt; delete specified resource&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;HEAD:&lt;/b&gt; identical to GET but has no message body&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;TRACE:&lt;/b&gt; invoke a remote, application-layer loop- back of the request message&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;CONNECT:&lt;/b&gt; for use with proxy&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;OPTIONS:&lt;/b&gt; information about communication options&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;Response Codes&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;b&gt;100-199:&lt;/b&gt; Informational&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;200-299:&lt;/b&gt; Success&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;300-399:&lt;/b&gt; Redirection&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;400-499:&lt;/b&gt; Client Error&lt;/li&gt;
+    &lt;li&gt;&lt;b&gt;500-599:&lt;/b&gt; Server Error&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>TCP/IP review</title>
+      <link>https://bryanmartinez95.github.io/learn/tcpip/</link>
+      <pubDate>Mon, 26 Sep 2016 02:24:40 -0700</pubDate>
+      
+      <guid>https://bryanmartinez95.github.io/learn/tcpip/</guid>
+      <description>&lt;p&gt;&lt;h1&gt;TCP/IP review&lt;/h1&gt;
+Admittedly, memorizing things like protocols is something im really bad at. I also have a test coming up soon which is probably the main reason as to why im writing this. TCP/IP is one of those things that you don&amp;rsquo;t think about on a day to day basis as a developer but its something that lies at the core of almost everything we do. Down below are definitions of TCP/IP in my own words and what I need to know about them as a software developer.&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;What is TCP/IP?&lt;/h2&gt;
+TCP/Ip is a &lt;b&gt;set&lt;/b&gt; of protocols that work together to send datagrams across the internet from one device to another. One of the main things that make TCP/IP so important is that it is &lt;b&gt;reliable&lt;/b&gt;. To find out how and why its reliable, we have to look at each layer of the stack.&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;The layers of TCP/IP&lt;/h2&gt;
+TCP/IP can be shown as a four-layer conceptual model thats known as the DARPA model. We&amp;rsquo;ll start from the bottom of the stack.&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;Network Interface layer&lt;/h3&gt;
+    The network interface layer is responsible for putting packets/datagrams onto the network and is also responsible for receiving packets off the network medium/device. An important thing to remember is that the network interface layer &lt;b&gt;alone&lt;/b&gt; can be assumed to be &lt;b&gt;unreliable.&lt;/b&gt; In a realistic point of view, the network layer mainly involves the link between the router and a device. The PC sends a packet to the router and the router decides where to send it from there. Likewise, the router picks the connected device and sends the received message to the pc.&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;Internet Layer&lt;/h3&gt;
+    The internet layer is the next step in the stack. The internet layer is responsible for three things &lt;b&gt;addressing, packaging and routing.&lt;/b&gt; The core protocols that make up this layer are IP, ARP, ICMP and IGMP. &lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Internet Protocol:&lt;/b&gt; The IP is a routable protocol responsible for IP addressing and the fragmentation and reassembly of packets.&lt;br/&gt;
+&lt;b&gt;Address Resolution Protocol:&lt;/b&gt; ARP is in charge of the conversion of MAC addresses and IP addresses.&lt;br/&gt;
+&lt;b&gt;Internet Control Message Protocol:&lt;/b&gt; ICMP is responsible for providing diagnostics and reporting errors or condtions regarding delivery of packets.&lt;br/&gt;
+&lt;b&gt;Internet Group Management Protocol:&lt;/b&gt; is responsible for manangement of IP multicast groups&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;Host to host transport layer&lt;/h3&gt;
+    The transport layer can sort of be misleading. The transport layer has nothing to do with the actualy sending and receiving of packets. The transport layer is responsible for providing session and datagram communication services. The transport layer is based off of two core protocols: TCP and UDP. TCP provides a one-to-one, connection-oriented, relaible commucation service. UDP provides one-to-one, one-to-many, connectionless, and unreliable  commucations services. UDP can be faster than TCP but is very unreliable and is used when the overhead of TCP is not desired.&lt;/p&gt;
+
+&lt;p&gt;&lt;h3&gt;Application Layer&lt;/h3&gt;
+    The application layer is the layer that makes use of the services in each layer and defines the protocols that applications use to exchange data. Application layer protocols are always being developed, one that comes to mind is HTTP/2. Some of the most used protocols are HTTP, FTP, SMTP and telnet.&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;OSI (Open Systems Interconnection) model&lt;/h2&gt;
+The OSI model is a deeper look at each layer and seperates the DARPA model a bit further. In order:
+&lt;ul&gt;
+    &lt;li&gt;Application layer&lt;/li&gt;
+    &lt;li&gt;Presentation layer&lt;/li&gt;
+    &lt;li&gt;Session layer&lt;/li&gt;
+    &lt;li&gt;Trasport layer&lt;/li&gt;
+    &lt;li&gt;Network layer&lt;/li&gt;
+    &lt;li&gt;Data Link layer&lt;/li&gt;
+    &lt;li&gt;Physical layer&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;TCP&lt;/h2&gt;
+TCP is a reliable, connection-oriented delivery service. Connection-oriented means that a connection must be first established before hosts can exchange data. The term 3 way handshake is often used with TCP to ensure that datagrams successfully reach their destination. TCP also breaks down and constructs datagrams that are too big to be sent. TCP uses byte-stream communications. TCP is defined in RFC 793. When I hear TCP i also like to think about the word &lt;b&gt;session.&lt;/b&gt; TCP also provides a checksum, the checksum is used to verify the integrity of the TCP header and the TCP data.
+&lt;h2&gt;UDP&lt;/h2&gt;
+UDP provides a connectionless datagram service that offers unreliable, best-effort delivery of data trasmitted in messages. When something is being sent through UDP there will be no guarantee that the message has been sent and UDP is also one-to-many.
+&lt;h2&gt;IP&lt;/h2&gt;
+IP by itself is connectionless and unreliable. Its main use is addressing and routing. IP is defined in RFC 791. The checksum is a mathematical computation used to verify the integrity of the IP header.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
