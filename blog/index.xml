@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on Welcome to Spirit</title>
-    <link>https://bryanmartinez95.github.io/blog/</link>
-    <description>Recent content in Blogs on Welcome to Spirit</description>
+    <title>Blog-rsses on Welcome to Spirit</title>
+    <link>https://bryanmartinez95.github.io/blog/index.xml</link>
+    <description>Recent content in Blog-rsses on Welcome to Spirit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 14 Sep 2016 23:26:50 -0700</lastBuildDate>

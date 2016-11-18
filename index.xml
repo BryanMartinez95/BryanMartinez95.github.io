@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Welcome to Spirit</title>
-    <link>https://bryanmartinez95.github.io/</link>
+    <link>https://bryanmartinez95.github.io/index.xml</link>
     <description>Recent content on Welcome to Spirit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
